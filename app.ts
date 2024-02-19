@@ -1,48 +1,32 @@
-(() => {
+// Funciones Básicas
+function sumar( a:number, b:number ):number{
+  return a + b;
+}
 
-    // Tipos
-    const batman: string= 'Bruce';
-    const superman: string = 'Clark';
-  
-    const existe: boolean = false;
-  
-    // Tuplas
-    const parejaHeroes: [string, string]= [batman,superman];
-    const villan: [string, number,boolean] = ['Lex Lutor',5,true];
-  
-    // Arreglos
-    const aliados: string[] = ['Mujer Maravilla','Acuaman','San', 'Flash'];
-  
-    //Enumeraciones
-    enum Fuerza{
-      Acuaman=0,
-      Batman=1,
-      Flash=5,
-      Superman=100
+const contar = ( heroes:string[] ):number => {
+  return heroes.length;
+}
+const superHeroes = ["Flash", "Arrow", "Superman", "Linterna Verde"];
+contar(superHeroes);
 
-    }
-    const fuerzaFlash: Fuerza = Fuerza.Flash;
-    const fuerzaSuperman: Fuerza = Fuerza.Superman;
-    const fuerzaBatman: Fuerza = Fuerza.Batman;
-    const fuerzaAcuaman: Fuerza = Fuerza.Acuaman;
-  
-    // Retorno de funciones
-    function activaBatiseñal(): string{
-      return 'activada';
-    }
-    console.log(activaBatiseñal());
-  
-    function pedirAyuda():void{
-      console.log('Auxilio!!!');
-    }
-    pedirAyuda();
-  
-    // Aserciones de Tipo
-    const poder: any = '100';
-    const largoDelPoder:number = (poder as string).length;
-    console.log( largoDelPoder );
-  
-  
-  })()
-  
-  
+//Parametros por defecto
+const llamarBatman = ( llamar:boolean = true ):void => {
+  if( llamar ){
+    console.log("Batiseñal activada");
+  }
+}
+
+llamarBatman();
+
+// Rest?
+const unirheroes = ( ...personas:string[] ):string => {
+  return personas.join(", ");
+}
+
+
+// Tipo funcion
+const noHaceNada = ( numero:number, texto:string, booleano:boolean, arreglo:[] )=> {}
+
+// Crear el tipo de funcion que acepte la funcion "noHaceNada"
+let noHaceNadaTampoco: (n:number, t:string, b:boolean, a:[]) => void;
+noHaceNadaTampoco = noHaceNada;
