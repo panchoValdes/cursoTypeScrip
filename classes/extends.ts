@@ -22,19 +22,26 @@
             console.log('Constructor Xmen llamado');
             
         }
+
         get fullName(){
             return `${this.name} - ${this.realName}`;
         }
+
         set fullName(name: string){
+            if(name.length < 3){
+                throw new Error('El nombre debe de ser mayor a 3 caracteres');
+            }
             this.name = name;
         }
         getFullnameDesdeXmen(){
-            console.log('getFullnameDesdeXmen', super.getFullname());
+            console.log( super.getFullname());
         }
     }
-    const wolverine = new Xmen('Wolverine', 'Logan', true);
-    console.log(wolverine.fullName);
-    wolverine.fullName = 'Ciclope';
+    // const wolverine = new Xmen('Wolverine', 'Logan', true);
+
+    // wolverine.fullName = 'Ci';
+
+    // console.log(wolverine.fullName);
     // wolverine.getFullnameDesdeXmen();
 
 
